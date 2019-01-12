@@ -50,8 +50,9 @@ $insertstatusesnum = $useridentity . " <has_statusesnum> " . $statusesnum . " .\
 $insertfavouritesnum = $useridentity . " <has_favouritesnum> " . $favouritesnum . " .\n";
 $inserttime = $useridentity . " <created_at> \"" . $createdat . "\" .\n";
 $insertpwd = $useridentity . " <has_password> \"" . $pwd . "\" .\n";
+$inserthead = $useridentity . " <has_headimage_id> \"default\" .\n";
 
-$insertdata = "insert data\n{\n" . $insertuid . $insertname . $insertsname . $insertloc . $inserturl . $insertgender . $insertfollowersnum . $insertfriendsnum . $insertstatusesnum . $insertfavouritesnum . $inserttime . $insertpwd . "}";
+$insertdata = "insert data\n{\n" . $insertuid . $insertname . $insertsname . $insertloc . $inserturl . $insertgender . $insertfollowersnum . $insertfriendsnum . $insertstatusesnum . $insertfavouritesnum . $inserttime . $insertpwd . $inserthead . "}";
 
 // echo $insertdata . PHP_EOL;
 
@@ -67,7 +68,7 @@ if($obj->StatusMsg == "update query returns true."){
 	$checkobj = json_decode($checkres);
 	// echo $checkres . PHP_EOL;
 	// echo count($checkobj->results->bindings) . PHP_EOL;
-	if(count($checkobj->results->bindings) == 11){
+	if(count($checkobj->results->bindings) == 12){
 		$arr = array('status' => 'success', 'uid' => $uid);
 	}
 }
