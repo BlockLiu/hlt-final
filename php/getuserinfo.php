@@ -48,13 +48,17 @@ if(count($obj->results->bindings) == 0){
 }
 
 $res = $obj->results->bindings[0];
-$arr = array("name"=>$res->name->value, "sname"=>$res->sname->value,
-			 "location"=>$res->loc->value, "url"=>$res->url->value,
-			 "gender"=>$res->gender->value, "followersnum"=>$res->followersnum->value,
+$arr = array("name"=>$res->name->value, 
+			 "sname"=>$res->sname->value,
+			 "location"=>$res->loc->value, 
+			 "url"=>$res->url->value,
+			 "gender"=>$res->gender->value, 
+			 "followersnum"=>$res->followersnum->value,
 			 "friendsnum"=>$res->friendsnum->value, 
 			 "statusesnum"=>$res->statusesnum->value,
 			 "favouritesnum"=>$res->favouritesnum->value,
-			 "createdat"=>$res->time->value, "headimageid"=>$res->head->value);
+			 "createdat"=>$res->time->value, 
+			 "headimageid"=>$res->head->value);
 $ret = json_encode($arr);
 echo $ret;
 ?>
