@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>个人主页</title>
+    <link rel="shortcunt icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/homepage.css">
+    <script src="./js/cookie.js"></script>
+    <script src="./js/homepage.js"></script>
+</head>
+<body>
+    <div class="header">
+        <div class="headerbar">
+            <h1 class="logo">
+                <a href="index.html">gStore</a>
+            </h1>
+            <div class="publish">
+                <a href="javascript:void(0);">发布</a>
+            </div>
+            <div class="nav">
+                <ul>
+                    <li class="account">
+                        <a href="#" class="suid_screen_name" id="suid_screen_name">Fstar</a>
+                        <div class="account-panel">
+                            <ul>
+                                <li><a href="setting.html">设置</a></li>
+                                <li><a href="signin.html">退出</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="banner">
+        <div class="p-info">
+            <div class="p-icon">
+                <img src="images/person-icon.png" alt="picon" id="avatar">
+            </div>
+            <div class="p-name"><a href="homepage.html" class="tuid_screen_name">Fstar</a></div>
+            <div class="p-intro">绘画|设计爱好者</div>
+            <button type="button" class="follow-btn" name="button">关注ta</button>
+            <div class="p-profile">
+                <ul>
+                    <li><a href="#">
+                        <span>关注</span>
+                        <span class="p-following" id="followersnum">14</span>
+                    </a></li>
+                    <li><a href="#">
+                        <span>粉丝</span>
+                        <span class="p-followed" id="favouritesnum">5</span>
+                    </a></li>
+                <!--    <li><a href="#">
+                        <span>说说</span>
+                        <span class="p-publish">3</span>
+                    </a></li>-->
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="content" id="content">
+            <!-- 说说1 -->
+            <div class="item">
+                <div class="u-info">
+                    <div class="u-icon">
+                        <img src="images/person-icon.png" alt="Fstar"  class="weiboAvatar" width="50px"/>
+                    </div>
+                    <div class="name-pub">
+                        <div class="u-name">
+                            <a href="">Fstar</a>
+                        </div>
+                        <div class="u-pub">
+                            今天 09:21
+                        </div>
+                    </div>
+                </div>
+                <div class="itemcontent">
+                    <div class="thumbnail">
+                        <img src="images/img1.png" alt="img1">
+                    </div>
+                    <div class="full-text">
+                        <p>你们是我走过的路…</p>
+                    </div>
+                </div>
+                <div class="u-list">
+                    <ul>
+                        <li><a href="#"><span>分享</span></a></li>
+                        <li><a href="#"><span>评论</span><span> 6</span></a></li>
+                        <li><a href="#"><span>喜欢</span><span> 124</span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 说说2 -->
+            <div class="item">
+                <div class="u-info">
+                    <div class="u-icon">
+                        <img src="images/person-icon.png" alt="Fstar"  width="50px"/>
+                    </div>
+                    <div class="name-pub">
+                        <div class="u-name">
+                            <a href="">Fstar</a>
+                        </div>
+                        <div class="u-pub">
+                            今天 09:21
+                        </div>
+                    </div>
+                </div>
+                <div class="itemcontent">
+                    <div class="thumbnail">
+                        <img src="images/img1.png" alt="img1">
+                    </div>
+                    <div class="full-text">
+                        <p>你们是我走过的路…</p>
+                    </div>
+                </div>
+                <div class="u-list">
+                    <ul>
+                        <li><a href="#"><span>分享</span></a></li>
+                        <li><a href="#"><span>评论</span><span> 6</span></a></li>
+                        <li><a href="#"><span>喜欢</span><span> 124</span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    <a id="gotop" href="#">回到顶部</a>
+    <!-- 发布布局 -->
+    <div class="opacity-bg" style="display:none"></div>
+    <div class="post"  style="display:none;top:100px;left:200px;">
+        <div class="post-title">说点什么</div>
+        <div class="post-close">关闭</div>
+        <div class="post-input">
+            <textarea name="post-txt"></textarea>
+        </div>
+
+        <a class="add-img" href="javascript:void(0)">添加图片</a>
+        <button type="button" class="post-btn" name="button">发布</button>
+    </div>
+    <script type="text/javascript" src="js/publish.js"></script>
+</body>
+</html>

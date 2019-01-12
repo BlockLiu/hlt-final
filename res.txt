@@ -1,0 +1,20 @@
+{
+    "head": {
+        "link": [],
+        "vars": [
+            "lyric"
+        ]
+    },
+    "results": {
+        "bindings": [
+            {
+                "lyric": {
+                    "type": "literal",
+                    "value": "You're alone in the rain\nBeen thinking of you\nYou can't stop your tears\nWhen you stayed with me just before\nI want to know\nDo you love me?\n\nHow long you had to wait for me\nYou can't think of yesterday\nI got in a fight\nWhen you saw me\nBut I couldn't talk and sprawled out on the floor\nSo it's too late\n\nOh Girl, How can I speak with you?\nIf you could hear my secret\nNow I really want to talk\nIt's a shame\nOh, Did you know?\nThere's a way that you can find what you seek\nYou'll be stronger for real\n\nYou're alone in the rain\nBeen thinking of you\nYou can't stop your tears\nWhen you stayed with me just before\nI want to know\nDo you love me?\n\nHow long you had to wait for me\nYou can't think of yesterday\nI got in a fight\nWhen you saw me\nBut I couldn't talk and sprawled out on the floor\nSo it's too late\n\nOh Girl, How can I speak with you?\nIf you could hear my secret\nNow I really want to talk\nIt's a shame\nOh, Did you know?\nThere's a way that you can find what you seek\nYou'll be stronger for real"
+                }
+            }
+        ]
+    },
+    "StatusCode": 0,
+    "StatusMsg": "success"
+}

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>账户设置</title>
+    <link rel="shortcunt icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="css/common.css">
+    <link type="text/css" rel="stylesheet" href="css/setting.css"
+</head>
+<body>
+    <div class="header">
+        <div class="headerbar">
+            <h1 class="logo">
+                <a href="index.html">gStore</a>
+            </h1>
+            <div class="publish">
+                <a href="javascript:void(0);">发布</a>
+            </div>
+            <div class="nav">
+                <ul>
+                    <li><a href="#">私信</a></li>
+                    <li><a href="#">通知</a></li>
+                    <li class="account">
+                        <a href="homepage.html">Fstar</a>
+                        <div class="account-panel">
+                            <ul>
+                                <li><a href="setting.html">设置</a></li>
+                                <li><a href="signin.html">退出</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+    <div></div>
+    <div class="settingbox">
+        <div class="s-title">账号设置</div>
+        <div class="imgbox">
+            <img src="images/setting-icon.png" alt="头像">
+            <div class="icon-bg"></div>
+            <span class="txt-changeicon">更换头像</span>
+            <!--<form action="upload.php" method="post" enctype="multipart/form-data">               
+                    <input type="file" name="file" id="file" class="file"/>
+                    <input type="submit" value="上传" id="update"/>
+            </form>-->
+        </div>
+        <div class="txtbox">
+            <div class="s-nick">
+                <label>昵称</label>
+                    <input type="text" value="Fstar"/>
+            </div>
+            <div class="s-sex">
+                <label>性别</label>
+                    <select name="sex">
+                        <option value="男">男</option>
+                        <option value="女">女</option>
+                    </select>
+            </div>
+            <div class="s-birth">
+                <label>生日</label>
+                        <select name="year">
+                            <option value="2017">2017</option>
+                            <option value="2016">2016</option>
+
+                        </select>
+                        <select name="month">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+
+                        </select>
+                        <select name="date">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                        </select>
+            </div>
+            <div class="s-sign">
+                <label class="l-sign">签名</label>
+                    <textarea  class="txt-sign" name="sign">绘画|设计爱好者</textarea>
+            </div>
+            <button class="s-submit">保存</button>
+        </div>
+    </div>
+    <!-- 发布布局 -->
+    <div class="opacity-bg" style="display:none"></div>
+    <div class="post"  style="display:none;top:100px;left:200px;">
+        <div class="post-title">说点什么</div>
+        <div class="post-close">关闭</div>
+        <div class="post-input">
+            <textarea name="post-txt"></textarea>
+        </div>
+
+        <a class="add-img" href="javascript:void(0)">添加图片</a>
+        <button type="button" class="post-btn" name="button">发布</button>
+    </div>
+    <script type="text/javascript" src="js/publish.js"></script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>登录</title>
+    <link rel="shortcunt icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="css/signin.css">
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/jquery.waypoints.min.js"></script>
+    <script src="./js/addcity.js"></script>
+    <script src="./js/signup.js"></script>
+    <script>
+        $(document).ready(function () {
+            var pro=document.getElementById("province");
+            var city=document.getElementById("city");
+            for (var i = 0; i < provinceSet.length; i++)
+                pro.add(new Option(provinceSet[i]));
+        });
+    </script>
+</head>
+<body>
+    <div class="wrap">
+        <div class="logo">
+            <h1>gStore</h1>
+            <h2>与朋友一起，分享你的生活</h2>
+        </div>
+        <div class="box">
+            <ul>
+                <li>注册</li>
+                <li class="selected">登录</li>
+            </ul>
+            <!-- sign up注册 -->
+            <form id="signup" style="display:none" >
+                <div class="name-inputbox inputbox">
+                    <input type="text" name="name" id="name" placeholder="用户名"/>
+                </div>
+                <div class="screenname-inputbox inputbox">
+                    <input type="text" name="sreen_name" id="screen_name" placeholder="昵称"/>
+                </div>
+                <div class="pw-inputbox inputbox">
+                    <input type="password" name="password" id="password" placeholder="密码"/>
+                </div>
+                <div class="pwc-inputbox inputbox">
+                    <input type="password" name="password_comfirm" id="password_confirm" placeholder="确认密码"/>
+                </div>
+
+                <label>性别</label>
+                <div class="sex-select">
+                        &nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="sex" value="male" id="male" checked="checked"/>
+                        <label for="male">男</label>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="sex" value="female" id="female"/>
+                        <label for="female">女</label>
+                </div>
+
+                <label>地区</label>
+                <div class="area">
+                    <div class="provincebox">
+                        <select name = "province" id="province" onchange="addCity();"></select>
+                    </div>
+
+                    <div class="citybox">
+                        <select name="city" id="city"><option value="None">城市</option></select>
+                    </div>
+                </div>
+
+                <input type="button" name="up-btn" class="up-btn" value="注册" onclick="signup()" >
+
+
+            </form>
+            <!-- 登录 -->
+            <form id="signin" action="index.html">
+                <div class="mail-inputbox inputbox">
+                    <input type="text" name="up-mail" id="username" placeholder="邮箱"/>
+                </div>
+                <div class="pw-inputbox inputbox">
+                    <input type="password" name="up-password" id="password" placeholder="密码"/>
+                </div>
+  
+                <input type="submit" name="up-btn" class="up-btn" value="登录">
+                </div>
+                
+
+
+            </form>
+        </div>
+    </div>
+    <script type="text/javascript">
+        // 选项表切换
+        var box = document.getElementsByClassName('box')[0];
+        var u = box.getElementsByTagName('li')[0];
+        var i = box.getElementsByTagName('li')[1];
+        i.onclick=function(){
+            i.className="selected";
+            u.className="";
+            document.forms[0].style.display="none";
+            document.forms[1].style.display="block";
+
+        }
+        u.onclick=function(){
+            u.className="selected";
+            i.className="";
+            document.forms[1].style.display="none";
+            document.forms[0].style.display="block";
+        }
+
+
+    </script>
+
+</body>
+</html>
