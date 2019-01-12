@@ -10,6 +10,7 @@
     <script src="js/jquery.waypoints.min.js"></script>
     <script src="./js/addcity.js"></script>
     <script src="./js/signup.js"></script>
+    <script src="./js/login.js"></script>
     <script>
         $(document).ready(function () {
             var pro=document.getElementById("province");
@@ -66,24 +67,21 @@
                     </div>
                 </div>
 
-                <input type="button" name="up-btn" class="up-btn" value="注册" onclick="signup()" >
+                <input type="button" name="up-btn" class="up-btn" value="注册" onclick="signup()">
 
 
             </form>
             <!-- 登录 -->
             <form id="signin" action="index.html">
                 <div class="mail-inputbox inputbox">
-                    <input type="text" name="up-mail" id="username" placeholder="邮箱"/>
+                    <input type="text" name="up-mail" id="loginID" placeholder="账号"/>
                 </div>
                 <div class="pw-inputbox inputbox">
-                    <input type="password" name="up-password" id="password" placeholder="密码"/>
+                    <input type="password" name="up-password" id="loginPWD" placeholder="密码"/>
                 </div>
   
-                <input type="submit" name="up-btn" class="up-btn" value="登录">
+                <input type="submit" name="up-btn" class="up-btn" value="登录" onclick="login()">
                 </div>
-                
-
-
             </form>
         </div>
         <div class="awayfrombottom"></div>
