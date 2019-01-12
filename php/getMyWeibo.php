@@ -2,12 +2,12 @@
 
 require "GstoreConnector.php";
 
-$uid = $_POST['uid'];
-$startidx = $_POST['start'];
-$len = $_POST['len'];
-// $uid = $_GET['uid'];
-// $startidx = $_GET['start'];
-// $len = $_GET['len'];
+// $uid = $_POST['uid'];
+// $startidx = $_POST['start'];
+// $len = $_POST['len'];
+$uid = $_GET['uid'];
+$startidx = $_GET['start'];
+$len = $_GET['len'];
 
 $username = "root";
 $password = "123456";
@@ -28,13 +28,14 @@ if(count($obj->results->bindings) == 0){
 /*
  select ?wid ?time where
  {
-	$uid <follow> ?tuid .
-	?wid <from_uid> ?tuid .
+	?wid <from_uid> $uid .
 	?wid <publish_date> ?time .
  } ORDER BY DESC(?time) LIMIT $len OFFSET $startidx
  */
-$weibotimequery = "select ?wid ?time where\n{\n" . $useridentity . " <follow> ?tuid .\n?wid <from_uid> ?tuid .\n?wid <publish_date> ?time .\n} ORDER BY DESC(?time) LIMIT " . $len . " OFFSET " . $startidx;
+$weibotimequery = "select ?wid ?time where\n{\n?wid <from_uid> " . $useridentity . " .\n?wid <publish_date> ?time .\n} ORDER BY DESC(?time) LIMIT " . $len . " OFFSET " . $startidx;
+echo $weibotimequery . PHP_EOL;
 $query = $gc->query($username, $password, "weibo", $weibotimequery);
+echo $query . PHP_EOL;
 
 $obj = json_decode($query);
 $widset = $obj->results->bindings;
