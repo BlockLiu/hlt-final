@@ -4,7 +4,7 @@ require "GstoreConnector.php";
 
 $name = $_POST['name'];
 $screenname = $_POST['screen_name'];
-$password = $_POST['password'];
+$pwd = $_POST['password'];
 $province = $_POST['province'];
 $city = $_POST['city'];
 $gender = $_POST['gender'];
@@ -26,5 +26,28 @@ while($flag == 1){
 	if(count($obj->results->bindings) == 0)
 		$flag = 0;
 }
-echo $uid;
+echo $uid . PHP_EOL;
+echo $name . PHP_EOL;
+echo $screenname . PHP_EOL;
+echo $pwd . PHP_EOL;
+echo $gender . PHP_EOL;
+
+// url
+$url = "http://localhost/homepage.php?suid=" . $uid;
+echo $url . PHP_EOL;
+
+$createdat = date('Y-m-d H:i:s');
+$friendsnum = 0;
+$followersnum = 0;
+$statusesnum = 0;
+$favouritesnum = 0;
+$location = $province . " " . $city;
+
+
+echo $createdat . PHP_EOL;
+echo $friendsnum . PHP_EOL;
+echo $followersnum . PHP_EOL;
+echo $statusesnum . PHP_EOL;
+echo $favouritesnum . PHP_EOL;
+echo $location . PHP_EOL;
 ?>

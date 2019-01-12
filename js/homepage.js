@@ -14,7 +14,7 @@
     //加载内容
     var phpfile="./php/homepage.php";
     $.ajax({ 
-        url:phpfile+"?keyWord="+suid+"&&"+tuid,
+        url:phpfile+"?sidu="+suid+"&uid="+tuid,
         success:function(data,status){ 
             // console.log(data);
             /*  
