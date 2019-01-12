@@ -47,7 +47,7 @@ function setCookie(cname,id){
 function publish(){
     var phpfile="./php/publish.php";
     var suid = getCookie("suid");
-    var text = document.getElementsByClass("weibo-text").value;
+    var text = document.getElementsByID("weibo-text").value;
     var image = document.getElementsById("weiboimage").value;
     var flag = false;
     $.ajax({ 
@@ -107,5 +107,5 @@ close.onclick= function(){
     p.style.display = "none";
 }
 //发布微博
-var post_button = document.getElementsByClass("post-btn");
+var post_button = document.getElementsByID("post-btn");
 post_button.onclick() = publish();
