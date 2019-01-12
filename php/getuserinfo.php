@@ -2,8 +2,8 @@
 
 require "GstoreConnector.php";
 
-// $uid = $_POST['uid'];
-$uid = $_GET['uid'];
+$uid = $_POST['uid'];
+// $uid = $_GET['uid'];
 // echo $uid;
 
 $username = "root";
