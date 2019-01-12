@@ -59,7 +59,7 @@ $res = $gc->query($username, $password, "weibo", $insertdata);
 // echo $res . PHP_EOL;
 $obj = json_decode($res);
 
-$arr = array("status" => "false");
+$arr = array("status" => "fail");
 if($obj->StatusMsg == "update query returns true."){
 	$check = "select ?x where\n{\n" . $useridentity . " ?y ?x .\n}";
 	// echo $check . PHP_EOL;
@@ -68,7 +68,7 @@ if($obj->StatusMsg == "update query returns true."){
 	// echo $checkres . PHP_EOL;
 	// echo count($checkobj->results->bindings) . PHP_EOL;
 	if(count($checkobj->results->bindings) == 11){
-		$arr = array('status' => 'true', 'uid' => $uid);
+		$arr = array('status' => 'success', 'uid' => $uid);
 	}
 }
 $ret = json_encode($arr);
