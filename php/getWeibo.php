@@ -57,6 +57,12 @@ for($i = 0; $i < count($widset); $i++)
 	// echo $weiboinfo . PHP_EOL;
 	$obj = json_decode($weiboinfo);
 
+
+	$snamequery = "select ?sname where\n{\n" . $obj->results->bindings[0]->fromuid->value . " <has_screen_name> ?sname .\n}";
+	$snameinfo = $gc->query($username, $password, "weibo", $snameinfo);
+	$obj2 = json_decode($snameinfo);
+	$sname = $obj2->results->bindings[0]->sname->value;
+
 	$a = array("wid"=>substr($widset[$i]->wid->value, 6),
 			   "publish_time"=>$obj->results->bindings[0]->time->value,
 			   "repostsnum"=>$obj->results->bindings[0]->repostsnum->value,
@@ -65,7 +71,8 @@ for($i = 0; $i < count($widset); $i++)
 			   "fromuid"=>substr($obj->results->bindings[0]->fromuid->value, 5),
 			   "topic"=>$obj->results->bindings[0]->topic->value,
 			   "source"=>$obj->results->bindings[0]->source->value,
-			   "text"=>$obj->results->bindings[0]->text->value);
+			   "text"=>$obj->results->bindings[0]->text->value,
+			   "sname"=>$sname);
 	$arr[] = $a;
 }
 

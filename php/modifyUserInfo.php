@@ -9,7 +9,7 @@ $uid = $_GET['uid'];
 $attr = $_GET['attribute'];
 $attrVal = $_GET['newVal'];
 
-echo $attribute . PHP_EOL;
+
 
 $username = "root";
 $password = "123456";
