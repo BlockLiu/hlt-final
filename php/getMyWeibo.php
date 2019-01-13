@@ -58,8 +58,9 @@ for($i = 0; $i < count($widset); $i++)
 	// echo $weiboinfo . PHP_EOL;
 	$obj = json_decode($weiboinfo);
 
-	$snamequery = "select ?sname where\n{\n" . $obj->results->bindings[0]->fromuid->value . " <has_screen_name> ?sname .\n}";
-	$snameinfo = $gc->query($username, $password, "weibo", $snameinfo);
+	$snamequery = "select ?sname where\n{\n<" . $obj->results->bindings[0]->fromuid->value . "> <has_screen_name> ?sname .\n}";
+	// echo $snamequery . PHP_EOL;
+	$snameinfo = $gc->query($username, $password, "weibo", $snamequery);
 	$obj2 = json_decode($snameinfo);
 	$sname = $obj2->results->bindings[0]->sname->value;
 
