@@ -2,12 +2,12 @@
 
 require "GstoreConnector.php";
 
-// $uid = $_POST['uid'];
-// $attr = $_POST['attribute'];
-// $attrVal = $_POST['newVal'];
-$uid = $_GET['uid'];
-$attr = $_GET['attribute'];
-$attrVal = $_GET['newVal'];
+$uid = $_POST['uid'];
+$attr = $_POST['attribute'];
+$attrVal = $_POST['newVal'];
+// $uid = $_GET['uid'];
+// $attr = $_GET['attribute'];
+// $attrVal = $_GET['newVal'];
 
 
 
