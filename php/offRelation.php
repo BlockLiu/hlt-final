@@ -61,13 +61,46 @@ if(count($obj->results->bindings) == 1 && $obj->results->bindings[0]->y->value =
 	}
 	$ret = json_encode($arr);
 	echo $ret;
-	return;
 }
 
 
-$arr = array("status"=>"fail");
-$ret = json_encode($arr);
-echo $ret;
+
+
+
+
+
+/* ********** modify flower information ************* */
+
+$getdata = "select ?n where\n{\n" . $suseridentity . " <has_favouritesnum> ?n .\n}";
+$query = $gc->query($username, $password, "weibo", $getdata);
+$obj = json_decode($query);
+$favouritesnum = intval($obj->results->bindings[0]->n->value) - 1;
+if($favouritesnum < 0)
+	$favouritesnum = 0;
+
+$deletedata = "delete where\n{\n" . $suseridentity . " <has_favouritesnum> \"" . $obj->results->bindings[0]->n->value . "\" .\n}";
+$query = $gc->query($username, $password, "weibo", $deletedata);
+
+$insertdata = "insert data\n{\n" . $suseridentity . " <has_favouritesnum> \"" . $favouritesnum . "\" .\n}";
+$query = $gc->query($username, $password, "weibo", $insertdata);
+
+
+$getdata = "select ?n where\n{\n" . $tuseridentity . " <has_followersnum> ?n .\n}";
+$query = $gc->query($username, $password, "weibo", $getdata);
+$obj = json_decode($query);
+$followersnum = intval($obj->results->bindings[0]->n->value) - 1;
+if($followersnum < 0)
+	$followersnum = 0;
+
+$deletedata = "delete where\n{\n" . $tuseridentity . " <has_followersnum> \"" . $obj->results->bindings[0]->n->value . "\" .\n}";
+$query = $gc->query($username, $password, "weibo", $deletedata);
+
+$insertdata = "insert data\n{\n" . $tuseridentity . " <has_followersnum> \"" . $followersnum . "\" .\n}";
+$query = $gc->query($username, $password, "weibo", $insertdata);
+
+
+/* ******************************************************** */
+
 ?>
 
 
