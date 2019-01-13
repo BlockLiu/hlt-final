@@ -177,6 +177,18 @@
 
 
 
+## 增加一条weibo之间的转发关系
+- getWeiboRela.php
+- 输入关键词：
+  - swid：swid这条微博转发了twid这条微博，我要把这个关系加入数据库
+  - twid
+- 返回值：
+  - swid不存在：`{"status":"no such swid"}`
+  - twid不存在：`{"status":"no such twid"}`
+  - 关系已存在：`{"status":"repost relation already exist"}`
+  - 建立关系成功：返回 `{"status":"success"}`
+
+
 
 ## 查询本人关注的好友
 
