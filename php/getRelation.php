@@ -63,15 +63,15 @@ echo $ret;
 
 /* ********** modify flower information ************* */
 
-$getdata = "select ?n where\n{\n" . $suseridentity . " <has_favouritesnum> ?n .\n}";
+$getdata = "select ?n where\n{\n" . $suseridentity . " <has_friendsnum> ?n .\n}";
 $query = $gc->query($username, $password, "weibo", $getdata);
 $obj = json_decode($query);
-$favouritesnum = intval($obj->results->bindings[0]->n->value) + 1;
+$friendsnum = intval($obj->results->bindings[0]->n->value) + 1;
 
-$deletedata = "delete where\n{\n" . $suseridentity . " <has_favouritesnum> \"" . $obj->results->bindings[0]->n->value . "\" .\n}";
+$deletedata = "delete where\n{\n" . $suseridentity . " <has_friendsnum> \"" . $obj->results->bindings[0]->n->value . "\" .\n}";
 $query = $gc->query($username, $password, "weibo", $deletedata);
 
-$insertdata = "insert data\n{\n" . $suseridentity . " <has_favouritesnum> \"" . $favouritesnum . "\" .\n}";
+$insertdata = "insert data\n{\n" . $suseridentity . " <has_friendsnum> \"" . $friendsnum . "\" .\n}";
 $query = $gc->query($username, $password, "weibo", $insertdata);
 
 

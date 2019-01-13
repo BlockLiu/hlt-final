@@ -149,9 +149,9 @@
   - url：个人主页链接
   - gender：性别，只可能是 "f" 或者 "m"
   - followersnum：关注者数量
-  - friendsnum：好友数量
+  - friendsnum：我关注的人数量
   - statusesnum：微博数
-  - favoritesnum：关注的用户数量
+  - favoritesnum：无用数据
   - createdat：账号创建日期
   - headimageid：头像名，默认是 "default"，请确保有 "default.jpg" 这样的图片在服务器
 
