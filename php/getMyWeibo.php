@@ -2,12 +2,12 @@
 
 require "GstoreConnector.php";
 
-// $uid = $_POST['uid'];
-// $startidx = $_POST['start'];
-// $len = $_POST['len'];
-$uid = $_GET['uid'];
-$startidx = $_GET['start'];
-$len = $_GET['len'];
+$uid = $_POST['uid'];
+$startidx = $_POST['start'];
+$len = $_POST['len'];
+// $uid = $_GET['uid'];
+// $startidx = $_GET['start'];
+// $len = $_GET['len'];
 
 $username = "root";
 $password = "123456";
