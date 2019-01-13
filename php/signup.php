@@ -27,38 +27,44 @@ while($flag == 1){
 	if(count($obj->results->bindings) == 0)
 		$flag = 0;
 }
+$useridentity = "<user/" . $uid . ">";
+$insertdata = "insert data\n{\n<useridentity> <exist> " . $useridentity . " .\n}";
+// echo $insertdata . PHP_EOL;
+$res = $gc->query($username, $password, "weibo", $insertdata);
+// echo $res . PHP_EOL;
 
 // url
 $url = "http://localhost/homepage.php?suid=" . $uid;
 $createdat = date('Y-m-d H:i:s');
-$friendsnum = 0;
-$followersnum = 0;
-$statusesnum = 0;
-$favouritesnum = 0;
+$friendsnum = "0";
+$followersnum = "0";
+$statusesnum = "0";
+$favouritesnum = "0";
 $location = $province . " " . $city;
 
-$useridentity = "<user/" . $uid . ">";
-$insertuid = "<useridentity> <exist> <user/" . $uid . "> .\n";
-$insertname = $useridentity . " <has_name> \"" . $name . "\" .\n";
-$insertsname = $useridentity . " <has_screen_name> \"" . $screenname . "\" .\n";
-$insertloc = $useridentity . " <has_location> \"" . $location . "\" .\n";
-$inserturl = $useridentity . " <has_url> \"" . $url . "\" .\n";
-$insertgender = $useridentity . " <has_gender> \"" . $gender . "\" .\n";
-$insertfollowersnum = $useridentity . " <has_followersnum> " . $followersnum . " .\n";
-$insertfriendsnum = $useridentity . " <has_friendsnum> " . $friendsnum . " .\n";
-$insertstatusesnum = $useridentity . " <has_statusesnum> " . $statusesnum . " .\n";
-$insertfavouritesnum = $useridentity . " <has_favouritesnum> " . $favouritesnum . " .\n";
-$inserttime = $useridentity . " <created_at> \"" . $createdat . "\" .\n";
-$insertpwd = $useridentity . " <has_password> \"" . $pwd . "\" .\n";
-$inserthead = $useridentity . " <has_headimage_id> \"default\" .\n";
+//$insertuid = "<useridentity> <exist> " . $useridentity . " .\n";
+$insertname = $useridentity . " <has_name> \"" . $name . "\" ;\n";
+$insertsname = "<has_screen_name> \"" . $screenname . "\" ;\n";
+$insertloc = "<has_location> \"" . $location . "\" ;\n";
+$inserturl = "<has_url> \"" . $url . "\" ;\n";
+$insertgender = "<has_gender> \"" . $gender . "\" ;\n";
+$insertfollowersnum = "<has_followersnum> \"" . $followersnum . "\" ;\n";
+$insertfriendsnum = "<has_friendsnum> \"" . $friendsnum . "\" ;\n";
+$insertstatusesnum = "<has_statusesnum> \"" . $statusesnum . "\" ;\n";
+$insertfavouritesnum = "<has_favouritesnum> \"" . $favouritesnum . "\" ;\n";
+$inserttime = "<created_at> \"" . $createdat . "\" ;\n";
+$insertpwd = "<has_password> \"" . $pwd . "\" ;\n";
+$inserthead = "<has_headimage_id> \"default\" .\n";
 
-$insertdata = "insert data\n{\n" . $insertuid . $insertname . $insertsname . $insertloc . $inserturl . $insertgender . $insertfollowersnum . $insertfriendsnum . $insertstatusesnum . $insertfavouritesnum . $inserttime . $insertpwd . $inserthead . "}";
+$insertdata = "insert data\n{\n" . $insertname . $insertsname . $insertloc . $inserturl . $insertgender . $insertfollowersnum . $insertfriendsnum . $insertstatusesnum . $insertfavouritesnum . $inserttime . $insertpwd . $inserthead . "}";
 
 // echo $insertdata . PHP_EOL;
-
 $res = $gc->query($username, $password, "weibo", $insertdata);
 // echo $res . PHP_EOL;
+
+
 $obj = json_decode($res);
+
 
 $arr = array("status" => "fail");
 if($obj->StatusMsg == "update query returns true."){
@@ -66,7 +72,7 @@ if($obj->StatusMsg == "update query returns true."){
 	// echo $check . PHP_EOL;
 	$checkres = $gc->query($username, $password, "weibo", $check);
 	$checkobj = json_decode($checkres);
-	// echo $checkres . PHP_EOL;
+	echo $checkres . PHP_EOL;
 	// echo count($checkobj->results->bindings) . PHP_EOL;
 	if(count($checkobj->results->bindings) == 12){
 		$arr = array('status' => 'success', 'uid' => $uid);
