@@ -178,7 +178,7 @@
 
 
 ## 增加一条weibo之间的转发关系
-- getWeiboRela.php
+- setWeiboRela.php
 - 输入关键词：
   - swid：swid这条微博转发了twid这条微博，我要把这个关系加入数据库
   - twid
@@ -254,7 +254,7 @@
 
 ## 取消关注
 
- - offRelation
+ - offRelation.php
  - 输入关键词：
     - suid：本人的uid
     - tuid：要取关的人的uid
@@ -269,7 +269,7 @@
 
 ## 关注
 
-- getRelation
+- getRelation.php
 - 输入关键词：
   - suid：本人的uid
   - tuid：要关注的人的uid
@@ -308,6 +308,20 @@
 - 返回值：
   - 上传成功：返回 `{"status":"success"}`
   - 上传失败：各种各样的信息返回
+
+
+
+## 下载头像
+
+- getHeadImage.php
+
+
+
+
+
+## 下载微博图片
+
+- getWeiboPic.php
 
 
 
