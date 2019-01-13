@@ -13,9 +13,9 @@ $gc = new GstoreConnector("127.0.0.1", 9000);
 
 $useridentity = "<user/" . $uid . ">";
 $if_uid_exist = "select (COUNT(?uid) as ?uidcnt) where\n{\n?uid <exist> " . $useridentity . " .\n}";
-echo $if_uid_exist . PHP_EOL;
+// echo $if_uid_exist . PHP_EOL;
 $query = $gc->query($username, $password, "weibo", $if_uid_exist);
-echo $query . PHP_EOL;
+// echo $query . PHP_EOL;
 $obj = json_decode($query);
 if(count($obj->results->bindings) == 0){
 	$arr = array("status" => "no such uid");
