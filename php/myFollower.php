@@ -18,6 +18,7 @@ $useridentity = "<user/" . $uid . ">";
 $if_uid_exist = "select (COUNT(?uid) as ?uidcnt) where\n{\n?uid <exist> " . $useridentity . " .\n}";
 // echo $if_uid_exist . PHP_EOL;
 $query = $gc->query($username, $password, "weibo", $if_uid_exist);
+// echo $query . PHP_EOL;
 $obj = json_decode($query);
 if(count($obj->results->bindings) == 0){
 	$arr = array("status" => "no such uid");
@@ -30,13 +31,14 @@ if(count($obj->results->bindings) == 0){
 /*
 	select ?uid ?sname where
 	{
-		$useridentity <follow> ?uid .
+		?uid <follow> $useridentity .
 		?uid <has_screen_name> ?sname .
 	}
  */
-$querysql = "select ?uid ?sname where\n{\n" . $useridentity . " <follow> ?uid .\n?uid <has_screen_name> ?sname .\n} ORDER BY (?uid) LIMIT " . $len . " OFFSET " . $startidx;
+$querysql = "select ?uid ?sname where\n{\n?uid <follow> " . $useridentity . " .\n?uid <has_screen_name> ?sname .\n} ORDER BY (?uid) LIMIT " . $len . " OFFSET " . $startidx;
 $query = $gc->query($username, $password, "weibo", $querysql);
-// echo $querysql . PHP_EOL . $query . PHP_EOL;
+// echo $querysql . PHP_EOL;
+// echo $query . PHP_EOL;
 
 $obj = json_decode($query);
 $userset = $obj->results->bindings;
