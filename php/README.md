@@ -103,6 +103,7 @@
       - source：一个链接
       - text：文字内容
       - sname：发布者的昵称
+      - picture：微博的图片名字，如果没有，就叫做"none"，请确保不重复
 
 
 
@@ -129,6 +130,7 @@
       - source：一个链接
       - text：文字内容
       - sname：发布者的昵称
+      - picture：微博的图片名字，如果没有，就叫做"none"，请确保不重复
 
 
 
@@ -314,6 +316,15 @@
 ## 下载头像
 
 - getHeadImage.php
+- 输入参数：
+  - uid
+- 返回值：
+  - uid不存在：`{"status":"no such suid"}`
+  - 成功：`{"status":"success", "content":xxx}`
+    - 返回的content是图片内容，格式是base64
+    - 可以参考下列网站：
+      - https://zhidao.baidu.com/question/1888052965315105428.html
+      - https://www.jianshu.com/p/91bcf4c3d155
 
 
 
@@ -322,6 +333,16 @@
 ## 下载微博图片
 
 - getWeiboPic.php
+- 输入参数：
+  - wid
+- 返回值：
+  - wid不存在：`{"status":"no such wid"}`
+  - 图片不存在：`{"status":"no picture for this wid"}`
+  - 成功：`{"status":"success", "content":xxx}`
+    - 返回的content是图片内容，格式是base64
+    - 可以参考下列网站：
+      - https://zhidao.baidu.com/question/1888052965315105428.html
+      - https://www.jianshu.com/p/91bcf4c3d155
 
 
 
