@@ -2,8 +2,8 @@
 
 - 每个php文件我都是POST方法接参数，可以按照下面例子传参
       /* 只需要修改post_data, phpfile */
-      var post_data = {"name":name, "screen_name":screen_name, "password":password, "province":province, "city":city, "gender":gender};	// "key"为php接收时用的参数，val为要发送给php的数据
-      var phpfile = "signup.php";		// 此处修改为你想要访问的php
+      var post_data = {"name":name, "screen_name":screen_name, "password":password, "province":province, "city":city, "gender":gender}; // "key"为php接收时用的参数，val为要发送给php的数据
+      var phpfile = "signup.php";   // 此处修改为你想要访问的php
       $.ajax({
           type:"POST",
           url:phpfile,
@@ -34,7 +34,7 @@
 - 返回值：
   - 注册失败：返回{"status":"fail"}
   - 注册成功：返回 {"status":"success", "uid":xxxxxxxxx}
-    		  返回的uid是用户要记住的，用户凭借uid登陆，可以用alert提醒用户记住uid
+          返回的uid是用户要记住的，用户凭借uid登陆，可以用alert提醒用户记住uid
 
 
 
@@ -200,7 +200,7 @@
 
 查询suid是否关注了tuid
 
-- checkUserRelation.php（待实现）
+- checkUserRelation.php
 - 输入关键词：
   - suid：我的uid
   - tuid：要查的人的uid
@@ -215,7 +215,7 @@
 
 取消关注
 
-- offRelation（待实现）
+- offRelation
 - 输入关键词：
   - suid：本人的uid
   - tuid：要取关的人的uid
@@ -224,12 +224,13 @@
   - tuid不存在：{"status":"no such tuid"}
   - 本来就没有关注：{"status":"no such relation"}
   - 取关成功：返回 {"status":"success"}
+  - 取关失败：返回 {"status":"fail"}
 
 
 
 关注
 
-- getRelation（待实现）
+- getRelation
 - 输入关键词：
   - suid：本人的uid
   - tuid：要关注的人的uid
@@ -237,7 +238,8 @@
   - suid不存在：{"status":"no such suid"}
   - tuid不存在：{"status":"no such tuid"}
   - 已经关注：{"status":"already follow"}
-  - 关注成功：返回 `{"status":"success"}
+  - 关注成功：返回 {"status":"success"}
+  - 关注失败：返回 {"status":"fail"}
 
 
 
