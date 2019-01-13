@@ -270,6 +270,37 @@
 
 
 
+## 上传头像
+
+- uploadHeadImage.php
+- html表单设置：
+  - action改成这个
+  - method必须是post
+  - input的name必须是headimage
+  - 记得把文件的名字设置为uid.png或者uid.jpg（反正就是要能区别开）
+  - 记得在uploads/headimages/文件夹下放一个default.png
+- 返回值：
+  - 上传成功：返回 `{"status":"success"}`
+  - 上传失败：各种各样的信息返回
+
+
+
+## 上传微博图片
+
+- uploadWeiboPic.php
+- html表单设置：
+  - action改成这个
+  - method必须是post
+  - input的name必须是weiboPic
+  - 记得把文件的名字设置为wid.png或者wid.jpg（反正就是要能区别开）
+- 返回值：
+  - 上传成功：返回 `{"status":"success"}`
+  - 上传失败：各种各样的信息返回
+
+
+
+
+
 ## 查询不同用户之间的联系（显示两个用户之间所有4条边以内的联系）
 
 - 待实现
