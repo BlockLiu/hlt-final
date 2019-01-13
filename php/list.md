@@ -142,25 +142,28 @@
 
 发送微博
 
-- publish.php（待实现）
+- publish.php
 - 输入关键词：
   - uid：发布者uid
-  - topic：所属话题
-  - source：发布源，可以写 <a href=\"http://localhost/homepage\" rel=\"nofollow\">昵称</a>
-    - 昵称填写发布者昵称
+  - topic：所属话题（限制在10个字内）
+  - source：发布源，可以写 <a href=\"http://localhost/homepage\" rel=\"nofollow\">微博gStore版</a>
     - 确保href里的链接是可以访问到个人主页的
     - 所有双引号 " 请写成 "
   - text：文字内容
+    - 若为转发，则文字版可以像群里截图那样转发（修改一下text）
   - picture：图片名，记得把图片上传。只支持一张图片。若无图，给我发送 "none"
+    - 转发不可以加图片，只能使用原微博的图片
 - 返回值：
   - 用户不存在：{"status":"no such uid"}
   - 注册成功：返回 {"status":"success", "wid":xxxxxxxxx}
 
 
 
+
+
 查询本人关注的好友
 
-- myFollowee.php（待实现）
+- myFollowee.php
 - 输入关键词：
   - uid：本人的uid
   - start：从第几个开始
@@ -179,7 +182,7 @@
 
 查询谁关注了我
 
-- myFollower.php（待实现）
+- myFollower.php
 - 输入关键词：
   - uid：本人的uid
   - start：从第几个开始
@@ -192,6 +195,21 @@
       - uid：关注者uid
       - screen_name：昵称
     - 若需要这些关注者更详细信息，用关注者id和getuserinfo.php获取
+
+
+
+查询suid是否关注了tuid
+
+- checkUserRelation.php（待实现）
+- 输入关键词：
+  - suid：我的uid
+  - tuid：要查的人的uid
+- 返回值：
+  - suid不存在：{"status":"no such suid"}
+  - tuid不存在：{"status":"no such tuid"}
+  - 若成功：{"status":"success", "result":xxx}
+    - "result":"true"：关注
+    - "result":"false"：没关注
 
 
 
