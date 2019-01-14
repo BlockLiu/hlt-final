@@ -291,8 +291,8 @@
   - action改成这个
   - method必须是post
   - input的name必须是headimage
-  - 记得把文件的名字设置为uid.png或者uid.jpg（反正就是要能区别开）
   - 记得在uploads/headimages/文件夹下放一个default.png
+  - 注意，我暂时只支持png文件上传
 - 返回值：
   - 上传成功：返回 `{"status":"success"}`
   - 上传失败：各种各样的信息返回
@@ -306,7 +306,7 @@
   - action改成这个
   - method必须是post
   - input的name必须是weiboPic
-  - 记得把文件的名字设置为wid.png或者wid.jpg（反正就是要能区别开）
+  - 注意，我暂时只支持png文件上传
 - 返回值：
   - 上传成功：返回 `{"status":"success"}`
   - 上传失败：各种各样的信息返回
@@ -350,7 +350,35 @@
 
 ## 查询不同用户之间的联系（显示两个用户之间所有4条边以内的联系）
 
-- 待实现
+- fourEdge.php
+- 输入参数包括：
+  - suid：源uid
+  - tuid：目标uid
+  - 供测试的数据：`suid=1000080335`，`tuid=1757353251`
+- 返回值：
+  - suid不存在：`{"status":"no such suid"}`
+  - tuid不存在：`{"status":"no such tuid"}`
+  - 若成功：`{"one":one_edge_res,"two":two_edge_res,"three":three_edge_res,"four":four_edge_res}`
+    - `one_edge_res`
+      - `"status"`：
+        - 若为0，则表示suid与tuid无直接联系
+        - 若为1，suid直接关注tuid
+    - `two_edge_res`：
+      - `"status"`：suid与tuid通过一个中间用户相连的关系数量`n`
+      - `"content"`：是一个数组，有`n`个元素
+        - 数组中每个元素是一个uid，表示 suid->这个uid->tuid
+    - `three_edge_res`：
+      - `"status"`：suid与tuid通过两个中间用户相连的关系数量`n`
+      - `"content"`：是一个数组，有`n`个元素
+        - 数组中每个元素是一个映射，其中包含两个元素：
+          - `"m1"`，`"m2"`：这两个都是uid
+          - 表示  suid->m1->m2->tuid
+    -  `four_edge_res`：
+      - `"status"`：suid与tuid通过三个中间用户相连的关系数量`n`
+      - `"content"`：是一个数组，有`n`个元素
+        - 数组中每个元素是一个映射，其中包三两个元素：
+          - `"m1"`，`"m2"`，`"m3"`：这三个都是uid
+          - 表示  suid->m1->m2->m3->tuid
 
 
 
