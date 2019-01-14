@@ -93,7 +93,7 @@ if($obj->StatusMsg == "update query returns true."){
 	// echo $check . PHP_EOL;
 	$checkres = $gc->query($username, $password, "weibo", $check);
 	$checkobj = json_decode($checkres);
-	echo $checkres . PHP_EOL;
+	// echo $checkres . PHP_EOL;
 	// echo count($checkobj->results->bindings) . PHP_EOL;
 	if(count($checkobj->results->bindings) == 9){
 		$arr = array('status' => 'success', 'wid' => $wid);
