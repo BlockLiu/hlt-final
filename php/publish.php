@@ -6,10 +6,10 @@ $source = $_POST['source'];
 $text = $_POST['text'];
 $picture = $_POST['picture'];
 
-echo $source . PHP_EOL . $text . PHP_EOL;
+// echo $source . PHP_EOL . $text . PHP_EOL;
 $source = str_replace('"', '\"', $source);
 $text = str_replace('"', '\"', $text);
-echo $source . PHP_EOL . $text . PHP_EOL;
+// echo $source . PHP_EOL . $text . PHP_EOL;
 
 $username = "root";
 $password = "123456";
@@ -85,7 +85,7 @@ $insertpic = $weiboidentity . " <picture> \"" . $picture . "\" .\n";
 $insertdata = "insert data\n{\n" . $insertdate . $insertrep . $insertcom . $insertatt . $insertuid . $inserttopic . $insertsource . $inserttext . $insertpic . "}";
 // $insertdata = "insert data\n{\n" . $insertsource . "}";
 $res = $gc->query($username, $password, "weibo", $insertdata);
-echo $insertdata . PHP_EOL . $res . PHP_EOL;
+// echo $insertdata . PHP_EOL . $res . PHP_EOL;
 $obj = json_decode($res);
 $arr = array("status" => "fail");
 if($obj->StatusMsg == "update query returns true."){

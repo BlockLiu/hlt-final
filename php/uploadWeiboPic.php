@@ -3,6 +3,7 @@
     $imageName = $_FILES['weiboPic']['name'];
     $tmpName = $_FILES['weiboPic']['tmp_name'];
     // echo $imageName . PHP_EOL . $tmpName . PHP_EOL;
+    $wid = $_POST['number'];
 
     if ($image['error'] > 0) {
                 $error = "upload fail, because ";
@@ -41,7 +42,7 @@
 
     $filepath = '../uploads/pictures/';
 
-    if(move_uploaded_file($tmpName, $filepath . $imageName)){
+    if(move_uploaded_file($tmpName, $filepath . $wid . ".png")){
         $arr = array("status"=>"success");
         $ret = json_encode($arr);
         echo $ret;

@@ -3,6 +3,8 @@
     $imageName = $_FILES['headimage']['name'];
     $tmpName = $_FILES['headimage']['tmp_name'];
     // echo $imageName . PHP_EOL . $tmpName . PHP_EOL;
+    $uid = $_POST['number'];
+    // echo $uid . PHP_EOL;
 
     if ($image['error'] > 0) {
                 $error = "upload fail, because ";
@@ -41,13 +43,16 @@
 
     $filepath = '../uploads/headimages/';
 
-    if(move_uploaded_file($tmpName, $filepath . $imageName)){
-        $arr = array("status"=>"success");
-        $ret = json_encode($arr);
-        echo $ret;
-    }else{
+    if(!move_uploaded_file($tmpName, $filepath . $uid . ".png")){
         $arr = array("status"=>"fail", "errInfo"=>"please check read and write permission");
         $ret = json_encode($arr);
         echo $ret;
     }
+
+
+
+
+    $arr = array("status"=>"success");
+    $ret = json_encode($arr);
+    echo $ret;
 ?>
