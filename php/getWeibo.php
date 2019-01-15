@@ -51,7 +51,8 @@ for($i = 0; $i < count($widset); $i++)
 	$topic = $widentity . " <topic> ?topic .\n";
 	$source = $widentity . " <source> ?source .\n";
 	$text = $widentity . " <text> ?text .\n";
-	$weiboquery = "select ?time ?repostsnum ?commentsnum ?attitudesnum ?fromuid ?topic ?source ?text where\n{\n" . $time . $repostsnum . $commentsnum . $attitudesnum . $fromuid . $topic . $source . $text . "}";
+	$picName = $widentity . " <picture> ?picture .\n";
+	$weiboquery = "select ?time ?repostsnum ?commentsnum ?attitudesnum ?fromuid ?topic ?source ?text ?picture where\n{\n" . $time . $repostsnum . $commentsnum . $attitudesnum . $fromuid . $topic . $source . $text . $picName . "}";
 	// echo $weiboquery . PHP_EOL;
 	$weiboinfo = $gc->query($username, $password, "weibo", $weiboquery);
 	// echo $weiboinfo . PHP_EOL;
@@ -72,6 +73,7 @@ for($i = 0; $i < count($widset); $i++)
 			   "topic"=>$obj->results->bindings[0]->topic->value,
 			   "source"=>$obj->results->bindings[0]->source->value,
 			   "text"=>$obj->results->bindings[0]->text->value,
+		  	   "picture"=>$obj->results->bindings[0]->picture->value,
 			   "sname"=>$sname);
 	$arr[] = $a;
 }
